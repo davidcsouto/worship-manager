@@ -88,7 +88,7 @@ const router = express.Router();
  * /members:
  *   get:
  *     summary: Listar todos os membros
- *     description: Retorna a lista de todos os membros da banda
+ *     description: Retorna a lista de todos os membros da do ministério de louvor
  *     tags: [Membros]
  *     security:
  *       - bearerAuth: []
@@ -185,7 +185,7 @@ router.get('/:id', authenticateToken, (req, res) => {
  * /members:
  *   post:
  *     summary: Criar novo membro (apenas admin)
- *     description: Cria um novo membro na banda (apenas administradores)
+ *     description: Cria um novo membro no ministério de louvor (apenas administradores)
  *     tags: [Membros]
  *     security:
  *       - bearerAuth: []
@@ -383,7 +383,7 @@ router.put('/:id', authenticateToken, requireAdmin, async (req, res) => {
  * /members/{id}:
  *   delete:
  *     summary: Excluir membro (apenas admin)
- *     description: Remove um membro da banda (apenas administradores)
+ *     description: Remove um membro do ministério de louvor (apenas administradores)
  *     tags: [Membros]
  *     security:
  *       - bearerAuth: []

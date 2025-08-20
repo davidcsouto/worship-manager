@@ -31,9 +31,9 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Worship Management API',
+      title: 'Worship Manager API',
       version: '1.0.0',
-      description: 'API para gerenciamento de ministérios de adoração com autenticação JWT e controle de acesso',
+      description: 'API para gerenciamento de ministérios de louvor com autenticação JWT e controle de acesso',
     },
     servers: [
       {
@@ -66,7 +66,7 @@ app.use('/scales', scaleRoutes);
 // Rota de teste
 app.get('/', (req, res) => {
   res.json({ 
-    message: 'Banda API - Sistema de Gerenciamento de Banda',
+    message: 'Worship Manager - Sistema de Gerenciamento de Ministério de Louvor',
     version: '1.0.0',
     documentation: `/api-docs`
   });

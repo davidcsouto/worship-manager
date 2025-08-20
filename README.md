@@ -1,6 +1,6 @@
-# Banda API - Sistema de Gerenciamento de Banda
+# Worship Manager - Sistema de Gerenciamento de Ministério de Louvor
 
-Uma API RESTful em Node.js para gerenciamento de banda com autenticação JWT e controle de acesso por níveis.
+Uma API RESTful em Node.js para gerenciamento de ministério de louvor com autenticação JWT e controle de acesso por níveis.
 
 ## 🎯 Funcionalidades
 
@@ -45,7 +45,7 @@ Uma API RESTful em Node.js para gerenciamento de banda com autenticação JWT e 
 1. Clone o repositório:
 ```bash
 git clone <url-do-repositorio>
-cd banda-api
+cd worship-manager
 ```
 
 2. Instale as dependências:

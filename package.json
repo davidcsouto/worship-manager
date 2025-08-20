@@ -1,13 +1,13 @@
 {
-  "name": "banda-api",
+  "name": "worship-manager",
   "version": "1.0.0",
-  "description": "API para gerenciamento de banda com autenticação JWT e controle de acesso",
+  "description": "API para gerenciamento de ministério de louvor com autenticação JWT e controle de acesso",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"
   },
-  "keywords": ["api", "banda", "jwt", "autenticação"],
+  "keywords": ["api", "worship", "jwt", "autenticação"],
   "author": "",
   "license": "MIT",
   "dependencies": {
