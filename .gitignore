@@ -71,3 +71,4 @@ temp/
 
 # Tests artifacts
 *.docx
+/mochawesome-report/
