@@ -34,11 +34,37 @@ Uma API RESTful em Node.js para gerenciamento de ministério de louvor com auten
 - **Helmet** - Segurança
 - **CORS** - Cross-origin resource sharing
 - **Rate Limiting** - Proteção contra ataques
+- **Mocha** - Framework de testes
+- **Chai** - Biblioteca de asserções
+- **Supertest** - Testes de API
+- **Mochawesome** - Relatórios de teste
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── server.js              # Servidor principal
+├── routes/                # Rotas da API
+│   ├── auth.js           # Rotas de autenticação
+│   ├── members.js        # Rotas de membros
+│   ├── music.js          # Rotas de músicas
+│   └── scales.js         # Rotas de escalas
+├── middleware/            # Middlewares
+│   └── auth.js           # Middleware de autenticação
+└── data/                 # Dados e seed
+    ├── database.js       # Simulação de banco de dados
+    └── seed.js           # Dados iniciais
+
+test/                     # Testes automatizados
+├── helpers/              # Helpers para testes
+└── fixtures/             # Dados de teste
+```
 
 ## 📋 Pré-requisitos
 
 - Node.js (versão 14 ou superior)
 - npm ou yarn
+- Git
 
 ## 🔧 Instalação
 
@@ -53,7 +79,18 @@ cd worship-manager
 npm install
 ```
 
-3. Execute o servidor:
+3. Configure as variáveis de ambiente:
+   
+   Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
+   ```env
+   BASE_URL=http://localhost:3000
+   ```
+   
+   **Nota**: O arquivo `.env` já está configurado no `.gitignore` para não ser versionado.
+
+**Arquivos ignorados pelo Git**: O projeto inclui um `.gitignore` configurado para ignorar `node_modules/`, arquivos `.env`, logs, relatórios de teste e outros arquivos temporários.
+
+4. Execute o servidor:
 ```bash
 # Desenvolvimento
 npm run dev
@@ -63,6 +100,47 @@ npm start
 ```
 
 O servidor estará rodando em `http://localhost:3000`
+
+## 📜 Scripts Disponíveis
+
+- `npm start` - Inicia o servidor em modo produção
+- `npm run dev` - Inicia o servidor em modo desenvolvimento com nodemon (auto-reload)
+- `npm test` - Executa todos os testes com relatório mochawesome
+
+## 🧪 Testes
+
+O projeto inclui uma suite completa de testes automatizados:
+
+### Executar todos os testes:
+```bash
+npm test
+```
+
+### Executar testes específicos:
+```bash
+# Testes de autenticação
+npx mocha ./test/authLogin.test.js --timeout=200000 --reporter mochawesome
+
+# Testes de membros
+npx mocha ./test/members.test.js --timeout=200000 --reporter mochawesome
+```
+
+### Relatórios de teste:
+Após a execução dos testes, os relatórios são gerados automaticamente na pasta `mochawesome-report/` com uma interface visual detalhada dos resultados dos testes.
+
+### Estrutura de testes:
+```
+test/
+├── authLogin.test.js          # Testes de autenticação
+├── members.test.js            # Testes de gerenciamento de membros
+├── helpers/
+│   ├── authentication.js      # Helpers para autenticação
+│   └── member.js             # Helpers para testes de membros
+└── fixtures/
+    ├── postAuthLogin.json     # Dados de teste para login
+    ├── postMember.json        # Dados de teste para criar membro
+    └── putDataMember.json     # Dados de teste para atualizar membro
+```
 
 ## 📚 Documentação da API
 
@@ -228,6 +306,10 @@ A API retorna códigos de status HTTP apropriados:
 - `404` - Recurso não encontrado
 - `500` - Erro interno do servidor
 
+## 🔄 CI/CD
+
+O projeto inclui integração contínua com GitHub Actions que executa automaticamente os testes em cada push e pull request para a branch main.
+
 ## 📄 Licença
 
 Este projeto está sob a licença MIT.
@@ -238,9 +320,11 @@ Para contribuir com o projeto:
 
 1. Faça um fork do repositório
 2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
+3. Configure o arquivo `.env` com `BASE_URL=http://localhost:3000`
+4. Execute os testes: `npm test`
+5. Commit suas mudanças
+6. Push para a branch
+7. Abra um Pull Request
 
 ## 📞 Suporte
 
